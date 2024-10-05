@@ -1,0 +1,9 @@
+
+# Ignore the local Go environment files
+go.mod
+go.sum
+.git
+node_modules
+.vscode
+*.log
+polls.db  # if you don’t want to bundle the database in the image

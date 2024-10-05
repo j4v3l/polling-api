@@ -1,0 +1,12 @@
+services:
+  polling-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./polls.db:/app/polls.db
+    env_file:
+      - .env  # Load variables from the .env file
+    restart: unless-stopped

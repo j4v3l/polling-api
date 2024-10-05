@@ -1,0 +1,11 @@
+{"polls":[{"id":"poll1","question":"What's your favorite programming language?","options":["Go","Python","Rust"],"votes":null,"expires_at":"2024-10-03T19:28:13.947201692-04:00"},{"id":"poll2","question":"What's your least favorite programming language?","options":["Go","Python","Rust"],"votes":null,"expires_at":"2024-10-05T19:28:13.947202363-04:00"}],"tokens":{"admin":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI4MTcwODkzfQ.gP_G95MCIP0-xY7jzA5xfDoWu6JKXKgkHRgcCoojPjM","superadmin":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN1cGVyYWRtaW4iLCJyb2xlIjoic3VwZXItYWRtaW4iLCJleHAiOjE3MjgxNzA4OTN9.W9wqdoXLSQPZtMyajU3n2k3-SAKJLrfT7VU9U-wChSo","user":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJyb2xlIjoidXNlciIsImV4cCI6MTcyODE3MDg5M30.mb7XGAiWWi5khmuh6Drm6x0e2kJ9mBOh759exa_2pkM"},"votes":[{"UserID":"user","PollID":"poll1","Option":"Go"},{"UserID":"user","PollID":"poll2","Option":"Python"}]}
+
+curl -X POST http://localhost:8080/polls/create \
+  -d '{"id": "poll1", "question": "What is your favorite programming language?", "options": ["Go", "Python", "Rust"], "expires_at": "2024-12-31T23:59:59Z"}' \
+  --cookie "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN1cGVyYWRtaW4iLCJyb2xlIjoic3VwZXItYWRtaW4iLCJleHAiOjE3MjgxNjUwOTR9.KIdAzqmkKGBvNUXjOdsvcg3f-Bj0u3Do10XsxGyBqRc"" \
+  -H "Content-Type: application/json"
+
+
+❯ curl -X POST "http://localhost:8080/vote?id=poll2&option=Rust" \
+  --cookie "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJyb2xlIjoidXNlciIsImV4cCI6MTcyODE3MDg5M30.mb7XGAiWWi5khmuh6Drm6x0e2kJ9mBOh759exa_2pkM"
+
